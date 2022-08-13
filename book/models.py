@@ -10,7 +10,13 @@ from django.db import models
 class BookInfo(models.Model):
     name = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.name
+
 class PeopleInfo(models.Model):
     name = models.CharField(max_length=50)
     gender = models.BooleanField()
     book = models.ForeignKey(BookInfo, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
